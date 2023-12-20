@@ -55,13 +55,19 @@ const Navbar = () => {
     try {
       const res = await reportFraud(values.upiNumber);
       console.log(res,"res");
-      toast({
-        title:"User Reported with UPI ID"
-      })
+      if(res.status === 201){
+        toast({
+          title:"User Reported with UPI ID"
+        })
+      }else if(res.status === 200){
+        toast({
+          title:"UPI ID is already reported as fraud"
+        })
+      }
     } catch (error) {
       console.log(error);
       toast({
-        title:"UPI ID is already reported as fraud"
+        title:"Username not found for the given UPI number"
       })
     }
   }

@@ -23,7 +23,7 @@ export const logIn = async (userData) => {
 export const reportFraud = async (upiNumber) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/report-fraud`, { upiNumber });
-    return response.data;
+    return response;
   } catch (error) {
     throw error.response.data;
   }
@@ -32,7 +32,16 @@ export const reportFraud = async (upiNumber) => {
 export const makePayment = async (paymentData) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/payment`, paymentData);
-    return response.data;
+    return response;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
+
+export const verifyOtp = async (otp) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/verify-otp`, otp);
+    return response;
   } catch (error) {
     throw error.response.data;
   }

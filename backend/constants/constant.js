@@ -1,0 +1,1 @@
+export const GeneratedOTP = "1234";
